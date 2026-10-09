@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin · Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="admin.html"><span class="brand-mark"></span>Playground</a>
+        <nav class="topbar-nav" aria-label="Main navigation">
+          <a class="active" href="admin.html">Admin</a>
+          <a class="logout-link" href="login.html">Sign out</a>
+          <span class="avatar" aria-label="Signed in as MC">MC</span>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="admin-heading">
+          <div>
+            <p class="eyebrow">Workspace controls</p>
+            <h1>Manage members</h1>
+            <p class="subtitle">Add a teammate or review the people who already have access.</p>
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Directory filters">
+          <select class="select" id="department" aria-label="Filter by department">
+            <option value="">All departments</option>
+            <option>Engineering</option><option>IT</option><option>Help Desk</option><option>HR</option><option>PR</option>
+          </select>
+          <select class="select" id="role" aria-label="Filter by role">
+            <option value="">All roles</option>
+            <option>Software Engineer</option><option>Security Architect</option><option>Help Desk manager</option><option>Employment manager</option><option>Campaign manager</option>
+          </select>
+          <div class="search-wrap">
+            <input class="search-input" id="search" type="search" placeholder="Search people..." aria-label="Search people" />
+          </div>
+        </section>
+
+        <section class="admin-grid">
+          <form class="card admin-form" id="add-user-form">
+            <h2>Add a member</h2>
+            <div class="field">
+              <label for="new-username">Username</label>
+              <input id="new-username" type="text" placeholder="e.g. taylor.reed" required />
+            </div>
+            <div class="field">
+              <label for="new-password">Temporary password</label>
+              <input id="new-password" type="password" placeholder="Create a password" required />
+            </div>
+            <div class="field">
+              <label for="new-department">Department</label>
+              <select id="new-department" required>
+                <option value="">Choose one</option><option>Engineering</option><option>IT</option><option>Help Desk</option><option>HR</option><option>PR</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="new-role">Role</label>
+              <select id="new-role" required>
+                <option value="">Choose one</option><option>Software Engineer</option><option>Security Architect</option><option>Help Desk manager</option><option>Employment manager</option><option>Campaign manager</option>
+              </select>
+            </div>
+            <button class="button" type="submit">Add member</button>
+          </form>
+
+          <section class="card table-card" aria-label="Users">
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Username</th><th>Department</th><th>Role</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+      <footer class="site-footer">Playground company · Admin access</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in · Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="login.html"><span class="brand-mark"></span>Playground</a>
+        <span class="eyebrow" style="margin: 0">Secure workspace</span>
+      </header>
+
+      <main class="page login-page">
+        <div class="login-layout">
+          <section class="login-intro">
+            <p class="eyebrow">Welcome back</p>
+            <h1>A calmer way to manage your team.</h1>
+            <p class="subtitle">Sign in to your Playground workspace and keep people, roles, and departments in one clear view.</p>
+            <span class="intro-accent">Simple tools. Thoughtful security.</span>
+          </section>
+
+          <section class="card login-card">
+            <h2>Sign in</h2>
+            <p class="form-note">Use your workspace credentials to continue.</p>
+            <form id="login-form">
+              <div class="field">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="you@playground.com" required />
+              </div>
+              <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password" required />
+              </div>
+              <button class="button full" type="submit">Continue to workspace</button>
+            </form>
+          </section>
+        </div>
+      </main>
+      <footer class="site-footer">Playground company · Built for clarity</footer>
+    </div>
+  </body>
+</html>

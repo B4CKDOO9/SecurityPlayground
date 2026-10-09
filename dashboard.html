@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard · Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="dashboard.html"><span class="brand-mark"></span>Playground</a>
+        <nav class="topbar-nav" aria-label="Main navigation">
+          <a class="active" href="dashboard.html">Dashboard</a>
+          <a class="logout-link" href="login.html">Sign out</a>
+          <span class="avatar" aria-label="Signed in as MC">MC</span>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="dashboard-heading">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h1>Team directory</h1>
+            <p class="subtitle">Browse workspace members by department and role.</p>
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Directory filters">
+          <select class="select" id="department" aria-label="Filter by department">
+            <option value="">All departments</option>
+            <option>Engineering</option>
+            <option>IT</option>
+            <option>Help Desk</option>
+            <option>HR</option>
+            <option>PR</option>
+          </select>
+          <select class="select" id="role" aria-label="Filter by role">
+            <option value="">All roles</option>
+            <option>Software Engineer</option>
+            <option>Security Architect</option>
+            <option>Help Desk manager</option>
+            <option>Employment manager</option>
+            <option>Campaign manager</option>
+          </select>
+          <div class="search-wrap">
+            <input class="search-input" id="search" type="search" placeholder="Search people..." aria-label="Search people" />
+          </div>
+        </section>
+
+        <section class="card table-card" aria-label="Users">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Username</th><th>Department</th><th>Role</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">Playground company · Your workspace at a glance</footer>
+    </div>
+  </body>
+</html>
