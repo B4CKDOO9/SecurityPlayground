@@ -106,19 +106,6 @@ button {
   background: #fff0f0;
 }
 
-.avatar {
-  width: 35px;
-  height: 35px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #f3c8cb;
-  border-radius: 50%;
-  color: var(--red-dark);
-  background: #fff0f0;
-  font-size: 0.77rem;
-  font-weight: 800;
-}
-
 .page {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -374,18 +361,6 @@ tbody tr:hover {
   font-weight: 720;
 }
 
-.user-dot {
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  color: var(--red-dark);
-  background: #ffe6e6;
-  font-size: 0.67rem;
-  font-weight: 800;
-}
-
 .role {
   display: inline-flex;
   padding: 5px 9px;
@@ -419,6 +394,49 @@ tbody tr:hover {
 .admin-form .button {
   width: 100%;
   margin-top: 5px;
+}
+
+.remove-form {
+  display: grid;
+  gap: 9px;
+  padding: 17px 22px 20px;
+  border-top: 1px solid var(--line);
+  background: #fffafa;
+}
+
+.remove-form label {
+  color: #8b7478;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.remove-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.remove-controls input {
+  min-width: 0;
+  flex: 1;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e2d3d5;
+  border-radius: 9px;
+  outline: none;
+}
+
+.remove-controls input:focus {
+  border-color: var(--red-light);
+  box-shadow: 0 0 0 4px rgba(243, 162, 167, 0.2);
+}
+
+.button.danger {
+  min-height: 40px;
+  background: #fff0f0;
+  color: var(--red-dark);
+  box-shadow: none;
 }
 
 .site-footer {
@@ -481,6 +499,10 @@ tbody tr:hover {
     max-width: none;
     order: 3;
     margin-left: 0;
+  }
+
+  .remove-controls {
+    display: grid;
   }
 
   th,

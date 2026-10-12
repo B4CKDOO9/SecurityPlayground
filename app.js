@@ -1,0 +1,23 @@
+
+const loginForm = document.getElementById('login-form');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+
+loginForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const formData = new FormData();
+  formData.append('action', 'login');
+  formData.append('username', usernameInput.value);
+  formData.append('password', passwordInput.value);
+  const response = await fetch("script.php", {
+  method: "POST",
+  body: formData,
+  });
+  const result = (await response.text()).trim();
+  if (result === "Login successful") {
+    window.location.href = "admin.html";
+  }
+  else {
+    alert("Login failed! Wrong username or password.");
+  }
+});

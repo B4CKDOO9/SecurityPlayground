@@ -13,7 +13,6 @@
         <nav class="topbar-nav" aria-label="Main navigation">
           <a class="active" href="admin.html">Admin</a>
           <a class="logout-link" href="login.html">Sign out</a>
-          <span class="avatar" aria-label="Signed in as MC">MC</span>
         </nav>
       </header>
 
@@ -41,25 +40,30 @@
         </section>
 
         <section class="admin-grid">
-          <form class="card admin-form" id="add-user-form">
+          <form class="card admin-form" id="add-user-form" action="script.php" method="post">
             <h2>Add a member</h2>
+            <input type="hidden" name="action" value="create" />
             <div class="field">
               <label for="new-username">Username</label>
-              <input id="new-username" type="text" placeholder="e.g. taylor.reed" required />
+              <input id="new-username" name="username" type="text" placeholder="e.g. taylor.reed" required />
+            </div>
+            <div class="field">
+              <label for="new-email">Email</label>
+              <input id="new-email" name="email" type="email" placeholder="e.g. taylor@playground.com" required />
             </div>
             <div class="field">
               <label for="new-password">Temporary password</label>
-              <input id="new-password" type="password" placeholder="Create a password" required />
+              <input id="new-password" name="password" type="password" placeholder="Create a password" required />
             </div>
             <div class="field">
               <label for="new-department">Department</label>
-              <select id="new-department" required>
+              <select id="new-department" name="department" required>
                 <option value="">Choose one</option><option>Engineering</option><option>IT</option><option>Help Desk</option><option>HR</option><option>PR</option>
               </select>
             </div>
             <div class="field">
               <label for="new-role">Role</label>
-              <select id="new-role" required>
+              <select id="new-role" name="role_user" required>
                 <option value="">Choose one</option><option>Software Engineer</option><option>Security Architect</option><option>Help Desk manager</option><option>Employment manager</option><option>Campaign manager</option>
               </select>
             </div>
@@ -69,14 +73,23 @@
           <section class="card table-card" aria-label="Users">
             <div class="table-scroll">
               <table>
-                <thead><tr><th>Username</th><th>Department</th><th>Role</th></tr></thead>
+                <thead><tr><th>Username</th><th>Email</th><th>Department</th><th>Role</th><th>Actions</th></tr></thead>
                 <tbody></tbody>
               </table>
             </div>
+            <form class="remove-form" action="script.php" method="post">
+              <input type="hidden" name="action" value="delete" />
+              <label for="remove-username">Remove by username</label>
+              <div class="remove-controls">
+                <input id="remove-username" name="username" type="text" placeholder="e.g. taylor.reed" required />
+                <button class="button danger" type="submit">Remove user</button>
+              </div>
+            </form>
           </section>
         </section>
       </main>
       <footer class="site-footer">Playground company · Admin access</footer>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>

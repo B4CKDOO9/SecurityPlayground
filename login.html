@@ -25,7 +25,8 @@
           <section class="card login-card">
             <h2>Sign in</h2>
             <p class="form-note">Use your workspace credentials to continue.</p>
-            <form id="login-form">
+            <form id="login-form" action="script.php" method="post">
+              <input type="hidden" name="action" value="login" />
               <div class="field">
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" placeholder="you@playground.com" required />
@@ -41,5 +42,6 @@
       </main>
       <footer class="site-footer">Playground company · Built for clarity</footer>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
