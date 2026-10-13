@@ -73,16 +73,17 @@
           <section class="card table-card" aria-label="Users">
             <div class="table-scroll">
               <table>
-                <thead><tr><th>Username</th><th>Email</th><th>Department</th><th>Role</th><th>Actions</th></tr></thead>
-                <tbody></tbody>
+                <thead><tr><th>Username</th><th>Email</th><th>Department</th><th>Role</th></tr></thead>
+                <tbody id="user-table">
+                </tbody>
               </table>
             </div>
-            <form class="remove-form" action="script.php" method="post">
+            <form class="remove-form" id="remove-form-id" action="script.php" method="post">
               <input type="hidden" name="action" value="delete" />
               <label for="remove-username">Remove by username</label>
               <div class="remove-controls">
                 <input id="remove-username" name="username" type="text" placeholder="e.g. taylor.reed" required />
-                <button class="button danger" type="submit">Remove user</button>
+                <button class="button danger" id="remove" type="submit">Remove user</button>
               </div>
             </form>
           </section>
@@ -90,6 +91,6 @@
       </main>
       <footer class="site-footer">Playground company · Admin access</footer>
     </div>
-    <script src="app.js"></script>
+    <script src="admin.js"></script>
   </body>
 </html>

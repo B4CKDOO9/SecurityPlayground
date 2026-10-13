@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 
 $action = $_POST['action'];
 
@@ -34,35 +34,36 @@ if ($action == 'login') {
 
 if ($action == 'search') {
 
-     $search_people = isset($_POST['searchPeople']) ? $_POST['searchPeople'] : '';
-     $department_filter = isset($_POST['departmentFilter']) ? $_POST['departmentFilter'] : '';
-     $role_filter = isset($_POST['roleFilter']) ? $_POST['roleFilter'] : '';
+     $search_people = isset($_POST['search']) ? $_POST['search'] : '';
+     $department_filter = isset($_POST['department']) ? $_POST['department'] : '';
+     $role_filter = isset($_POST['role']) ? $_POST['role'] : '';
 
      if ($department_filter == '' && $role_filter == '') {
-        $sql = "SELECT * FROM Users WHERE username LIKE '%$search_people%'";
+        $sql = "SELECT username, email, department, role_user FROM Users WHERE username LIKE '%$search_people%'";
         $result = $conn->query($sql);
      }
      elseif (empty($department_filter) == false && $role_filter == '') {
-            $sql = "SELECT * FROM Users WHERE username LIKE '%$search_people%' AND department LIKE '%$department_filter%'";
+            $sql = "SELECT username, email, department, role_user FROM Users WHERE username LIKE '%$search_people%' AND department LIKE '%$department_filter%'";
             $result = $conn->query($sql);
     }
     else if ($department_filter == '' && empty($role_filter) == false) {
-            $sql = "SELECT * FROM Users WHERE username LIKE '%$search_people%' AND role_user LIKE '%$role_filter%'";
+            $sql = "SELECT username, email, department, role_user FROM Users WHERE username LIKE '%$search_people%' AND role_user LIKE '%$role_filter%'";
             $result = $conn->query($sql);
     }
     else if (empty($department_filter) == false && empty($role_filter) == false) {
-            $sql = "SELECT * FROM Users WHERE username LIKE '%$search_people%' AND department LIKE '%$department_filter%' AND role_user LIKE '%$role_filter%'";
+            $sql = "SELECT username, email, department, role_user FROM Users WHERE username LIKE '%$search_people%' AND department LIKE '%$department_filter%' AND role_user LIKE '%$role_filter%'";
             $result = $conn->query($sql);
     }
 
+    header('Content-Type: application/json');
+    $json_array = array();
+
      if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo "username: " . $row["username"] . "role: " . $row["role_user"] . "department: " .  $row["department"] . "<br>";
+           array_push($json_array, $row);
         }
-     }
-     else {
-        echo "No results found";
-     }
+    }
+    echo json_encode($json_array);
 }
 
 if ($action == 'create') {

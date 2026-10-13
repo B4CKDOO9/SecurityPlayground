@@ -1,4 +1,3 @@
-
 const loginForm = document.getElementById('login-form');
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
@@ -15,7 +14,7 @@ loginForm.addEventListener('submit', async function(event) {
   });
   const result = (await response.text()).trim();
   if (result === "Login successful") {
-    window.location.href = "admin.html";
+    window.location.href = "dashboard.html";
   }
   else {
     alert("Login failed! Wrong username or password.");
