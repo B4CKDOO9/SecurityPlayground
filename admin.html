@@ -24,7 +24,7 @@
             <p class="subtitle">Add a teammate or review the people who already have access.</p>
           </div>
         </section>
-
+        
         <section class="toolbar" aria-label="Directory filters">
           <select class="select" id="department" aria-label="Filter by department">
             <option value="">All departments</option>
@@ -38,7 +38,16 @@
             <input class="search-input" id="search" type="search" placeholder="Search people..." aria-label="Search people" />
           </div>
         </section>
-
+        <div class="remove-panel">
+          <form class="remove-form" id="remove-form-id" action="script.php" method="post">
+            <input type="hidden" name="action" value="delete" />
+            <label for="remove-username">Remove by username</label>
+            <div class="remove-controls">
+              <input id="remove-username" name="username" type="text" placeholder="e.g. taylor.reed" required />
+              <button class="button danger" id="remove" type="submit">Remove user</button>
+            </div>
+          </form>
+        </div>
         <section class="admin-grid">
           <form class="card admin-form" id="add-user-form" action="script.php" method="post">
             <h2>Add a member</h2>
@@ -69,7 +78,7 @@
             </div>
             <button class="button" type="submit">Add member</button>
           </form>
-
+          
           <section class="card table-card" aria-label="Users">
             <div class="table-scroll">
               <table>
@@ -78,14 +87,6 @@
                 </tbody>
               </table>
             </div>
-            <form class="remove-form" id="remove-form-id" action="script.php" method="post">
-              <input type="hidden" name="action" value="delete" />
-              <label for="remove-username">Remove by username</label>
-              <div class="remove-controls">
-                <input id="remove-username" name="username" type="text" placeholder="e.g. taylor.reed" required />
-                <button class="button danger" id="remove" type="submit">Remove user</button>
-              </div>
-            </form>
           </section>
         </section>
       </main>

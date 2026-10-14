@@ -24,10 +24,17 @@ if ($action == 'login') {
     $sql = "SELECT * FROM Users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
-    if($result->num_rows > 0) {
-        echo "Login successful";
-    } else {
-        echo "Invalid username or password";    
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if($row['role_user'] == 'Administrator') {
+            echo "Logged in as Administrator";
+        }
+        else {
+            echo "Login successful";
+        }
+    }
+    else {
+        echo "Invalid username or password";
     }
 
 }

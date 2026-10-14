@@ -13,7 +13,10 @@ loginForm.addEventListener('submit', async function(event) {
   body: formData,
   });
   const result = (await response.text()).trim();
-  if (result === "Login successful") {
+  if (result === "Logged in as Administrator") {
+    window.location.href = "admin.html";
+  }
+  else if (result === "Login successful") {
     window.location.href = "dashboard.html";
   }
   else {
