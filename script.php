@@ -4,14 +4,11 @@ $username = "playground";
 $password = "admin";
 $dbname = "playground";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-//echo "Connected successfully";
 
 $action = $_POST['action'];
 
@@ -91,7 +88,7 @@ if ($action == 'create') {
 }
 
 if ($action == 'delete') {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $username = $_POST['username'];
 
     $sql = "DELETE FROM Users WHERE username = '$username'";
     $result = $conn->query($sql);
@@ -102,5 +99,11 @@ if ($action == 'delete') {
     } else {
         echo "Unable to remove user";
     }
+}
+
+if ($action == 'sign_out') {
+    session_start();
+    session_destroy();
+    echo "Signed out successfully";
 }
 ?>

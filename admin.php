@@ -1,3 +1,11 @@
+<?php
+ session_start();
+ if(!isset($_SESSION["role"]) || $_SESSION["role"] != "Administrator") {
+    header("Location: login.html");
+    exit();
+ }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,7 +20,7 @@
         <a class="brand" href="admin.html"><span class="brand-mark"></span>Playground</a>
         <nav class="topbar-nav" aria-label="Main navigation">
           <a class="active" href="admin.html">Admin</a>
-          <a class="logout-link" href="login.html">Sign out</a>
+          <button class="logout-link" id="signout">Sign out</button>
         </nav>
       </header>
 

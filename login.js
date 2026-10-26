@@ -14,10 +14,10 @@ loginForm.addEventListener('submit', async function(event) {
   });
   const result = (await response.text()).trim();
   if (result === "Logged in as Administrator") {
-    window.location.href = "admin.html";
+    window.location.href = "admin.php";
   }
   else if (result === "Login successful") {
-    window.location.href = "dashboard.html";
+    window.location.href = "dashboard.php";
   }
   else {
     alert("Login failed! Wrong username or password.");

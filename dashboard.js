@@ -2,7 +2,13 @@ const searchBar = document.getElementById('search');
 const filterRoles = document.getElementById('role');
 const filterDepartments = document.getElementById('department');
 const tableBody = document.getElementById('user-table');
+const signOut = document.getElementById('signout');
 
+signOut.addEventListener('click', async function(event){
+  event.preventDefault();
+  await signOutButton();
+  window.location.href = "login.html";
+});
 searchBar.addEventListener('input', async function() {
   await searchRun();
 });
@@ -36,5 +42,18 @@ async function searchRun() {
   tableBody.innerHTML = rows;
   }
 }
+
+async function signOutButton() {
+  const formData = new FormData();
+  formData.append('action', 'sign_out')
+  const response = await fetch("script.php", {
+    method: "POST",
+    body: formData
+  });
+  const result = await response.text();
+  console.log(result);
+  window.location.href = "login.html";
+}
+
 searchRun();
 

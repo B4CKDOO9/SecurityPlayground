@@ -9,4 +9,3 @@ CREATE TABLE Users (
     role_user ENUM('Software Engineer','Security Architect','Help Desk manager','Employment manager','Campaign manager','Administrator') NOT NULL,
     date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
