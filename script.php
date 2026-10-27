@@ -101,9 +101,4 @@ if ($action == 'delete') {
     }
 }
 
-if ($action == 'sign_out') {
-    session_start();
-    session_destroy();
-    echo "Signed out successfully";
-}
 ?>

